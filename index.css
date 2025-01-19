@@ -1,78 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
-body{
-    background: #F8F8F8;
+body {
+    background: linear-gradient(135deg, #ff8c00, #ff6f61);
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-*, *::before, *::after{
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-
-.custom-field{
+.custom-field {
     position: relative;
     font-size: 14px;
     padding-top: 20px;
     margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.custom-field input{
+.custom-field input {
     padding: 12px;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
     font-size: 14px;
-    border-radius: 3px;
-    border: 1.5px solid gray;
-    outline-color: deepskyblue;
+    border-radius: 8px;
+    border: 1.5px solid #ff69b4;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff7f0;
 }
 
-.custom-field .placeholder{
+.custom-field input:focus {
+    border-color: #ff4500;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.5);
+    background: #fff;
+}
+
+.custom-field .placeholder {
     position: absolute;
-    left: 12px;
-    top: calc(50% + 10px);
+    left: 16px;
+    top: calc(50% + 6px);
     transform: translateY(-50%);
-    color: #aaa;
+    color: #ff8c00;
     transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    font-size: 14px;
 }
 
 .custom-field input:valid + .placeholder,
-.custom-field input:focus + .placeholder{
-    top: 21px;
-    font-size: 10px;
-    color: #222;
-    padding: 5px;
+.custom-field input:focus + .placeholder {
+    top: 8px;
+    font-size: 12px;
+    color: #ff4500;
+    padding: 0 4px;
     background: white;
 }
 
-
-
-table{
-	width:  1000px;
-	margin: 30px auto;
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-collapse: collapse;
 }
 
-table th{
-	padding: 10px 0;
-	background-color: #f4f4f4;
-	/* background-color: #fff; */
-	border:  thin solid #d4d4d4;
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ff69b4;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
 }
 
-table td{
-	padding: 10px;
-	border:  thin solid #d4d4d4;
-	width: 18%;
-	text-align: center;
-	background-color: #fff;
+table th {
+    background-color: #ff1493;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.message{
+table td {
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffe4e1;
+}
+
+table tr:hover {
+    background-color: #ffdfdf;
+}
+
+.message {
     font-size: 70px;
     font-family: 'Ubuntu', sans-serif;
-    color: steelblue;
+    color: #ff4500;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 3px 3px 6px rgba(255, 69, 0, 0.3);
 }
 
-.success{
+.success {
     font-size: 18px;
     margin-top: 15px;
-    color: seagreen;
+    color: #32cd32;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .custom-field input {
+        max-width: 100%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .message {
+        font-size: 50px;
+    }
 }
